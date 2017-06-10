@@ -1,0 +1,113 @@
+<!doctype html>
+<html class="no-js">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="renderer" content="webkit">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+		<title>电院期末成绩查询</title>
+
+		<link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css" />
+		<link rel="stylesheet" href="css/main.css" />
+
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
+		<script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.ie8polyfill.min.js"></script>
+		<script src="js/handlebars.min.js"></script>
+		<script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.widgets.helper.min.js"></script>
+	</head>
+
+	<body>
+
+		<script type="text/x-handlebars-template" id="amz-tpl">
+			{{>header header}} {{>navbar navbar}}
+		</script>
+		<div id="view"></div>
+		<div class="am-g needHide" id="queryFragment">
+			<div class="am-u-md-3 am-u-sm-centered">
+				<form class="am-form am-vertical-align-middle">
+					<div class="am-input-group am-input-group-primary">
+						<span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i></span>
+						<input name="user" type="text" class="am-form-field" placeholder="请输入学号" required>
+					</div><br/>
+					<div class="am-input-group am-input-group-primary">
+						<span class="am-input-group-label"><i class="am-icon-lock am-icon-fw"></i></span>
+						<input name="pwd" type="password" class="am-form-field" placeholder="请输入数字校园密码" required>
+					</div><br/>
+					<button id="queryScore" type="button" class="am-btn am-btn-primary am-btn-block am-round btn-loading-example" data-am-loading="{loadingText: '努力查询中...'}">查询成绩</button><br>
+				</form>
+			</div>
+		</div>
+
+		<div class="am-g needHide" id="findFragment">
+			<div class="am-u-md-3 am-u-sm-centered">
+				<form class="am-form am-vertical-align-middle">
+					<div class="am-input-group am-input-group-primary">
+						<span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i></span>
+						<input name="stuId" type="text" class="am-form-field" placeholder="请输入学号" required>
+					</div><br/>
+					<div class="am-input-group am-input-group-primary">
+						<span class="am-input-group-label"><i class="am-icon-credit-card am-icon-fw"></i></span>
+						<input name="idCard" type="text" class="am-form-field" placeholder="请输入身份证号" required>
+					</div><br/>
+					<div class="am-input-group am-input-group-primary">
+						<span class="am-input-group-label"><i class="am-icon-picture-o am-icon-fw"></i></span>
+						<input name="verifyCode" type="text" class="am-form-field" placeholder="请输入验证码" required>
+						<span class="am-input-group-btn">
+        					<img id="verifyImg" style="height: 38px;width: 100px;"/>
+     					</span>
+					</div><br/>
+					<button id="resetPwd" type="button" class="am-btn am-btn-primary am-btn-danger am-btn-block am-round btn-loading-example" data-am-loading="{loadingText: '重置密码中...'}">重置密码</button><br>
+				</form>
+			</div>
+		</div>
+
+		<div class="am-modal am-modal-no-btn" tabindex="-1" id="showSource">
+			<div class="am-modal-dialog">
+				<div class="am-modal-hd">
+					成绩结果
+				</div>
+				<div class="am-modal-bd">
+					<br/>
+					<label class="stuInfo"></label>
+					<label class="stuInfo"></label>
+					<br/>
+					<br/>
+					<label class="needHide"></label>
+					<table class="myTableS needHide">
+						<tr>
+							<td class="myTdS">课程</td>
+							<td class="myTdS">成绩</td>
+						</tr>
+					</table>
+					<br/>
+					<br/>
+					<button type="button" data-am-modal-close class="am-btn am-btn-primary am-round">关闭</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="am-modal am-modal-alert" tabindex="-1" id="errorAlert">
+			<div class="am-modal-dialog">
+				<div class="am-modal-hd">提示信息</div>
+				<div class="am-modal-bd">
+				</div>
+				<div class="am-modal-footer">
+					<span class="am-modal-btn">确定</span>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+
+<script src="js/initHtml.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
