@@ -1,6 +1,6 @@
 # By:曉莊 QQ:75769837
 
-# [点我进入网站](http://cx.imxz.cn)
+# [点我进入我的网站](http://cx.imxz.cn)
 
 # 1.电院 期末考试 分数提前查询
 
@@ -12,4 +12,4 @@
 
 只要你的学号和身份证!
 
-# 代码环境 为 html+jqeury+php(后台)
+# 代码环境 为 html + jqeury + Amaze Ui + php(后台)
