@@ -15,4 +15,5 @@
 # 3. 希望学 PHP 同学能帮助维护代码.谢谢.
 
 # 代码环境 为 html + jqeury + Amaze Ui + php(后台)
-# 运行环境 为 php 5.6.30 需要 curl 支持 (使用 https://lnmp.org/install.html 一键安装)
+# 运行环境 为 php 5.6.30 需要 curl 支持    
+(使用 https://lnmp.org/install.html 一键安装)
