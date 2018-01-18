@@ -53,6 +53,7 @@ $res = $http->post($loginUrl, $res->getCookie(), $post); // 登录完成 获取�
 
 $retBack = $res->getBody();
 
+///一次都没登录过数字校园的
 if (strpos($retBack, "我同意") == true) {
     $http->get('http://220.178.150.5:8082/c/portal/update_terms_of_use?doAsUserId=&referer=%2Fc%2Fportal%2Flayout%3FdoAsUserId%3D',$res->getCookie());
 
