@@ -50,9 +50,11 @@
 # 8.忘记密码?  
 ### 网站左下角,重置密码!!!只要你的学号和身份证和验证码,注意刷新验证码!!!
 
-# 9.代码环境
-### 为 html + jqeury + Amaze Ui + php(后台)
-# 10.运行环境
+# 9.代码环境   
+### IDE: PhpStorm   
+# 10.使用技术   
+### html + jQeury + Amaze Ui + php(后台)
+# 11.运行环境   
 ### 为 php 5.6.30 需要 curl 支持    
 ### (使用 https://lnmp.org/install.html 一键安装)
 
