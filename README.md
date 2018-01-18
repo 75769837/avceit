@@ -24,3 +24,9 @@
 # 代码环境 为 html + jqeury + Amaze Ui + php(后台)
 # 运行环境 为 php 5.6.30 需要 curl 支持    
 ### (使用 https://lnmp.org/install.html 一键安装)
+
+# 实现说明
+### 请看代码.
+### 依托 数字校园 --> 我的学业工作 --> 成绩分布 
+### http://220.178.150.5:8083/jwweb/sys/pageXfer.aspx?url=../xscj/Stu_cjfb.aspx&usertype=STU000
+### 可以设定Get的参数提前看到成绩分布.
