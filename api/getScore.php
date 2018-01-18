@@ -25,8 +25,6 @@ if (date('m') >= 6 && date('m') <= 7) {
     die('{"status":-1}'); //不在查分时间范围
 }
 
-
-
 $loginUrl = "http://220.178.150.5:8082/cas/login?service=http%3A%2F%2F220.178.150.5%3A8082%2Fc%2Fportal%2Flogin";
 
 $http = HttpUtils::getInstance();
@@ -53,8 +51,30 @@ $post = array(
 
 $res = $http->post($loginUrl, $res->getCookie(), $post); // 登录完成 获取返回结果
 
+$retBack = $res->getBody();
 
-if (strpos($res->getBody(), "欢迎您") == false) {
+if (strpos($retBack, "我同意") == true) {
+    $http->get('http://220.178.150.5:8082/c/portal/update_terms_of_use?doAsUserId=&referer=%2Fc%2Fportal%2Flayout%3FdoAsUserId%3D',$res->getCookie());
+
+    $loginUrl = "http://220.178.150.5:8082/cas/login?service=http%3A%2F%2F220.178.150.5%3A8082%2Fc%2Fportal%2Flogin";
+    $res = $http->get($loginUrl);
+    $document = new simple_html_dom();
+    $document->load($http->gbk_to_utf8($res->getBody()));
+    $lt = $document->find('input', 4)->value; //获取登录随机的lt
+    $document->clear(); //清理内存
+    $post = array(
+        'username' => $userName,
+        'password' => $passWord,
+        'logintype' => 'cas',
+        '_eventId' => 'submit',
+        'lt' => $lt
+    ); //构造post数据
+
+    $res = $http->post($loginUrl, $res->getCookie(), $post); // 登录完成 获取返回结果
+    $retBack = $res->getBody();
+};
+
+if (strpos($retBack, "欢迎您") == false) {
     die('{"status":0}'); //登录失败!
 } else {
     preg_match('/欢迎您：(\S{2,4})<br>\s{0,}帐号：(\d{8,10})/iu', $res->getBody(), $info);
